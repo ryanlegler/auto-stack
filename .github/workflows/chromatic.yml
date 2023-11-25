@@ -13,7 +13,24 @@ jobs:
         runs-on: ubuntu-latest
         # Job steps
         steps:
-            - uses: actions/checkout@v1
+            - name: Checkout code
+              uses: actions/checkout@v1
+
+            - name: Install Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "18"
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Build and run your Gothib action
+              run: |
+                  # Your commands that rely on pnpm here
+                  # For example:
+                  pnpm install
+                  pnpm run build
+
             - name: Install dependencies
               # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
               run: pnpm
