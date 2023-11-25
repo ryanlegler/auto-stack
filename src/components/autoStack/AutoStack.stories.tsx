@@ -32,6 +32,7 @@ type Story = StoryObj<typeof meta>;
 export const Horizontal: Story = {
     args: {
         direction: "horizontal",
+        gap: "3",
     },
     render: (args) => (
         <AutoStack {...args}>
@@ -42,6 +43,7 @@ export const Horizontal: Story = {
 export const Vertical: Story = {
     args: {
         direction: "vertical",
+        gap: "3",
     },
     render: (args) => (
         <AutoStack {...args}>
@@ -55,7 +57,7 @@ export const AllVertical: Story = {
         direction: "vertical",
     },
     render: (args) => (
-        <AutoStack direction="vertical" hAlign="stretch">
+        <AutoStack direction="vertical" hAlign="stretch" gap="3">
             {sections.map((section, index) => (
                 <Section key={index} section={section} CustomElement={AutoStack} />
             ))}
