@@ -10,7 +10,8 @@
         "lint": "next lint",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "chromatic": "chromatic --exit-zero-on-changes"
+        "chromatic": "chromatic --exit-zero-on-changes",
+        "format": "prettier --write './**/*.{ts,tsx,js,jsx}'"
     },
     "dependencies": {
         "next": "14.0.3",
