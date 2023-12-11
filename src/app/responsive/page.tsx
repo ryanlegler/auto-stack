@@ -1,43 +1,33 @@
 import { AutoStack } from "@/components/autoStack";
 import { Contents } from "@/components/contents/Contents";
 
-export default function Pattern() {
-    // return <></>;
+export default function Responsive() {
+    const BG = {
+        base: "#bada55",
+        sm: "violet",
+        md: "blue",
+        lg: "orange",
+        xl: "purple",
+    };
     return (
-        <AutoStack
-            gap="5"
-            hAlign="stretch"
-            direction="vertical"
-            // className={css({
-            //     "& > *:not(.grow_0)": {
-            //         display: "flex",
-            //         flex: "1 0 auto",
-            //     },
-            // })}
-        >
+        <AutoStack gap="5" hAlign="stretch" direction="vertical">
             <AutoStack
                 gap="3"
                 h="350px"
                 vAlign={{
-                    base: "top",
+                    // base: "top",
                     sm: "middle",
                     md: "bottom",
                     // lg: "top",
                 }}
                 hAlign={{
-                    base: "left",
-                    sm: "center",
+                    // base: "left",
+                    sm: "left",
                     md: "right",
                     // lg: "stretch",
                 }}
                 direction="horizontal"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents />
             </AutoStack>
@@ -57,13 +47,7 @@ export default function Pattern() {
                     // lg: "stretch",
                 }}
                 direction="vertical"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents />
             </AutoStack>
@@ -85,13 +69,7 @@ export default function Pattern() {
                     lg: "stretch",
                 }}
                 direction="horizontal"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents />
             </AutoStack>
@@ -111,13 +89,7 @@ export default function Pattern() {
                     lg: "stretch",
                 }}
                 direction="vertical"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents />
             </AutoStack>
@@ -139,13 +111,7 @@ export default function Pattern() {
                     // lg: "stretch",
                 }}
                 direction="horizontal"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents flexIndex={0} />
             </AutoStack>
@@ -165,13 +131,7 @@ export default function Pattern() {
                     // lg: "stretch",
                 }}
                 direction="vertical"
-                bg={{
-                    base: "red",
-                    sm: "green",
-                    md: "blue",
-                    lg: "orange",
-                    // xl: "purple",
-                }}
+                bg={BG}
             >
                 <Contents flexIndex={0} />
             </AutoStack>

@@ -1,4 +1,4 @@
-import { css, cva } from "@/../styled-system/css";
+import { css } from "autostack-ui/styled-system/css";
 import { sections } from "@/constants/sections";
 import { Section } from "@/components/section";
 import { AutoStack } from "@/components/autoStack";

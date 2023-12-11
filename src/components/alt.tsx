@@ -1,7 +1,7 @@
-import { css, cva } from "@/../styled-system/css";
-import { autoStack } from "@/../styled-system/patterns";
-import { styled } from "@/../styled-system/jsx";
-import { token } from "@/../styled-system/tokens";
+import { css, cva } from "autostack-ui/styled-system/css";
+import { autoStack } from "autostack-ui/styled-system/patterns";
+import { styled } from "autostack-ui/styled-system/jsx";
+import { token } from "autostack-ui/styled-system/tokens";
 export function AutoStack({ direction, vAlign, hAlign, children, ...rest }: any) {
     // const classNameBase = autoStack({
     //     h: "350px",
