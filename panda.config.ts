@@ -1,4 +1,3 @@
-import { autoStackPattern } from "@/components/autoStack/pattern";
 import { defineConfig } from "@pandacss/dev";
 
 export default defineConfig({
@@ -17,12 +16,6 @@ export default defineConfig({
 
     // Files to exclude
     exclude: [],
-
-    patterns: {
-        extend: {
-            autoStack: autoStackPattern,
-        },
-    },
     staticCss: {
         css: [
             {
@@ -33,16 +26,9 @@ export default defineConfig({
                         "center",
                         "space-between",
                         "space-around",
-                        "stretch",
+                        "space-evenly",
                     ],
-                    alignItems: [
-                        "flex-start",
-                        "flex-end",
-                        "center",
-                        "space-between",
-                        "space-around",
-                        "stretch",
-                    ],
+                    alignItems: ["flex-start", "flex-end", "center", "baseline", "stretch"],
                     flexDirection: ["row", "column"],
                 },
                 responsive: true,
@@ -56,5 +42,6 @@ export default defineConfig({
     },
 
     // The output directory for your css system
-    outdir: "styled-system",
+    emitPackage: true,
+    outdir: "autostack-ui/styled-system",
 });
