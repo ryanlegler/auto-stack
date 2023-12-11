@@ -1,7 +1,7 @@
-import { AutoStackProps } from "../types";
+import { AutoStackPropsSlim } from "../types";
 import { BREAKPOINT_VALUES } from "../constants";
 
-export function getUsedBreakpoints({ hAlign, vAlign, direction }: AutoStackProps) {
+export function getUsedBreakpoints({ hAlign, vAlign, direction }: AutoStackPropsSlim) {
     const properties = [direction, vAlign, hAlign];
 
     const usedBreakpoints = properties.reduce((acc, property) => {

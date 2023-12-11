@@ -17,6 +17,7 @@ type Horizontal = {
     >;
 };
 export type AutoStackProps = PropsWithChildren<(Horizontal | Vertical) & HTMLStyledProps<"div">>;
+export type AutoStackPropsSlim = Horizontal | Vertical;
 
 // export type AutoStackProps = PropsWithChildren<
 //     {

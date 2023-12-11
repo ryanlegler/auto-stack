@@ -62,6 +62,11 @@ const meta = {
     // },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ["autodocs"],
+    parameters: {
+        controls: {
+            exclude: ["ref"],
+        },
+    },
     argTypes: {
         direction: {
             control: "select",
@@ -110,23 +115,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Horizontal: Story = {
+export const Configure: Story = {
     args: {
         direction: "horizontal",
         gap: "3",
     },
-
-    render: (args) => (
-        <AutoStack h="500px" className={css({ outline: "1px solid red" })} {...args}>
-            <Contents />
-        </AutoStack>
-    ),
-};
-export const Vertical: Story = {
-    args: {
-        direction: "vertical",
-        gap: "3",
+    parameters: {
+        chromatic: { disable: true },
     },
+
     render: (args) => (
         <AutoStack h="500px" className={css({ outline: "1px solid red" })} {...args}>
             <Contents />
@@ -139,16 +136,25 @@ export const All: Story = {
         direction: "vertical",
     },
     render: (args) => (
-        <AutoStack direction="vertical" hAlign="stretch" gap="3">
+        <AutoStack direction="vertical" hAlign="stretch" gap="3" m="2">
             {sections.map((section, index) => (
                 <Section key={index} section={section} CustomElement={AutoStack} />
             ))}
         </AutoStack>
     ),
+    parameters: {
+        controls: { disable: true },
+    },
 };
 export const Responsive: Story = {
     args: {
         direction: "vertical",
+    },
+    parameters: {
+        chromatic: { disable: true },
+        controls: { disable: true },
+        // could setup some snapshots of different breakpoints
+        // chromatic: { viewports: [320, 1200] },
     },
     render: (args) => (
         <AutoStack direction="vertical" hAlign="stretch" gap="3">
@@ -167,7 +173,14 @@ export const Responsive: Story = {
                     md: "right",
                     lg: "left",
                 }}
-                direction="horizontal"
+                direction={
+                    {
+                        base: "vertical",
+                        sm: "vertical",
+                        md: "horizontal",
+                        lg: "vertical",
+                    } as any // the discriminated union of these types is breaking the responsive types for direction
+                }
                 bg={BG}
             >
                 <Contents />

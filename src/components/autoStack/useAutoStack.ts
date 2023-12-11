@@ -1,18 +1,19 @@
 import React, { useMemo } from "react";
 import { css } from "autostack-ui/styled-system/css";
 import { BREAKPOINT_VALUES } from "./constants";
-import { AutoStackProps, Direction, HAlign, ResolvedProps, VAlign } from "./types";
+import { AutoStackPropsSlim, Direction, HAlign, ResolvedProps, VAlign } from "./types";
 import { getUsedBreakpoints } from "./utils/getUsedBreakpoints";
 
-export function useAutoStack({ hAlign, vAlign, direction }: AutoStackProps) {
+export function useAutoStack({ hAlign, vAlign, direction }: AutoStackPropsSlim) {
     return useMemo(() => {
         const resolvedBreakpointValues: (typeof BREAKPOINT_VALUES)[number][] = getUsedBreakpoints({
             hAlign,
             vAlign,
             direction,
-        });
+        } as AutoStackPropsSlim);
 
         const getJustifyContent = ({ hAlign, vAlign, direction }: ResolvedProps) => {
+            // TODO - fix typing here
             const JUSTIFY_MAP: any = {
                 horizontal: {
                     left: "flex-start",
@@ -21,7 +22,6 @@ export function useAutoStack({ hAlign, vAlign, direction }: AutoStackProps) {
                     around: "space-around",
                     evenly: "space-evenly",
                     between: "space-between",
-                    stretch: "stretch",
                 },
                 vertical: {
                     top: "flex-start",
@@ -30,12 +30,10 @@ export function useAutoStack({ hAlign, vAlign, direction }: AutoStackProps) {
                     around: "space-around",
                     evenly: "space-evenly",
                     between: "space-between",
-                    // doesn't do anything?
-                    stretch: "stretch",
                 },
             };
             const resolvedAlign = direction === "vertical" ? vAlign : hAlign;
-            return JUSTIFY_MAP[direction][resolvedAlign];
+            return JUSTIFY_MAP?.[direction]?.[resolvedAlign];
         };
 
         const getAlignItems = ({ hAlign, vAlign, direction }: ResolvedProps) => {
@@ -44,23 +42,13 @@ export function useAutoStack({ hAlign, vAlign, direction }: AutoStackProps) {
                     top: "flex-start",
                     middle: "center",
                     bottom: "flex-end",
-                    stretch: "stretch",
-                    // baseline?
-
-                    // around: "space-around",
-                    // evenly: "space-evenly",
-                    // between: "space-between",
+                    // stretch: "stretch",
                 },
                 vertical: {
                     left: "flex-start",
                     center: "center",
                     right: "flex-end",
-                    stretch: "stretch",
-                    // baseline?
-
-                    // around: "space-around",
-                    // evenly: "space-evenly",
-                    // between: "space-between",
+                    // stretch: "stretch",
                 },
             };
 
