@@ -1,5 +1,5 @@
-import { grid } from "@/../styled-system/patterns";
-import { css } from "@/../styled-system/css";
+import { grid } from "autostack-ui/styled-system/patterns";
+import { css } from "autostack-ui/styled-system/css";
 import { SectionConfig } from "@/constants/sections";
 
 export function Section({
@@ -24,7 +24,11 @@ export function Section({
             <div className={grid({ columns: 3, gap: "6" })}>
                 {section.items.map((item, index) => (
                     <div key={index}>
-                        <h1>
+                        <h1
+                            className={css({
+                                color: "gray.100",
+                            })}
+                        >
                             vAlign: {item.vAlign} | hAlign: {item.hAlign}
                         </h1>
                         <Element

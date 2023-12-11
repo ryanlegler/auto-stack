@@ -1,5 +1,5 @@
-import { css } from "@/../styled-system/css";
-import { ConditionalValue } from "@/../styled-system/types";
+import { css } from "autostack-ui/styled-system/css";
+import { ConditionalValue } from "autostack-ui/styled-system/types";
 
 type Item = {
     hAlign?: HorizontalAlignment;

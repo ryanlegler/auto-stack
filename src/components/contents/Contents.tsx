@@ -1,4 +1,4 @@
-import { css, cva } from "@/../styled-system/css";
+import { css, cva } from "autostack-ui/styled-system/css";
 
 export const Contents = ({ flexIndex }: { flexIndex?: number }) => {
     return (
